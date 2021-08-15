@@ -1,0 +1,5 @@
+FROM jackfirth/racket:8.2-full
+
+COPY server/* .
+
+CMD ["racket", "main.rkt"]

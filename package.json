@@ -10,8 +10,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "esbuild src/index.ts --bundle --minify --sourcemap --outfile=dist/bundle.js",
-    "build": "esbuild src/index.ts --bundle --outfile=dist/bundle.js"
+    "dist": "esbuild ui/index.ts --bundle --minify --sourcemap --outfile=dist/bundle.js",
+    "build": "esbuild ui/index.ts --bundle --outfile=dist/bundle.js"
   },
   "author": "",
   "license": "ISC"

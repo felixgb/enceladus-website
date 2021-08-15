@@ -106,7 +106,8 @@
 (module+ main
   (serve/servlet
    go
-   #:port 6892
+   #:port 9000
+   #:listen-ip #f
    #:command-line? #t
    #:servlet-regexp #rx""))
 
