@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+RELOAD_KEYS="CTRL+R"
+BROWSER="firefox"
+
+MYWINDOW=$(xdotool getactivewindow)
+
+browser_windows="$(xdotool search --sync --all --onlyvisible --name ${BROWSER})"
+
+inotifywait -r -e close_write,moved_to,create -m ui/ |
+while read -r directory events filename; do
+  if [[ $filename == *.ts ]]; then
+    printf "\033c"
+
+    npm run build
+    # racket home.rkt 2> >(sed $'s,.*,\e[31m&\e[m,'>&2)
+
+    for bw in $browser_windows; do
+      xdotool key --window "$bw" "$RELOAD_KEYS"
+    done
+
+  fi
+done
+
