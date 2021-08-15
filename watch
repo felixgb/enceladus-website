@@ -20,5 +20,15 @@ while read -r directory events filename; do
     done
 
   fi
+  if [[ $filename == *.html ]]; then
+    printf "\033c"
+
+    npm run public
+
+    for bw in $browser_windows; do
+      xdotool key --window "$bw" "$RELOAD_KEYS"
+    done
+
+  fi
 done
 

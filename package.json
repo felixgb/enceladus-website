@@ -11,8 +11,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dist": "esbuild ui/index.ts --bundle --minify --sourcemap --outfile=dist/bundle.js",
-    "build": "esbuild ui/index.ts --bundle --outfile=dist/bundle.js"
-  },
-  "author": "",
-  "license": "ISC"
+    "public": "cp -r ui/static/* dist",
+    "build": "esbuild ui/index.ts --bundle --sourcemap --outfile=dist/bundle.js"
+  }
 }
