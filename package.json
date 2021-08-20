@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "description": "It's my website",
   "dependencies": {
+    "@types/leaflet": "^1.7.4",
     "@types/three": "^0.131.0",
     "esbuild": "^0.12.20",
+    "leaflet": "^1.7.1",
     "three": "^0.131.3"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "esbuild ui/index.ts --bundle --minify --sourcemap --outfile=dist/bundle.js",
     "public": "cp -r ui/static/* dist",
-    "build": "esbuild ui/index.ts --bundle --sourcemap --outfile=dist/bundle.js"
+    "build": "esbuild ui/*.ts --bundle --sourcemap --outdir=dist/"
   }
 }
