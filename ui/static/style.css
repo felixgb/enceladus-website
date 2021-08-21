@@ -21,6 +21,18 @@ body {
   border: 2px solid purple;
 }
 
+.marker {
+  border: 2px solid purple;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.hovered {
+  background-color: rgba(1.0, 0.0, 0.0, 0.3);
+}
+
 #mapid {
   flex-grow: 2;
 }

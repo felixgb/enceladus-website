@@ -43,8 +43,28 @@ function locationItemTemplate(title: string, loc: Coords) {
   return template.content.firstChild;
 }
 
+function hoverConnection(source: HTMLElement, target: HTMLElement) {
+  source.addEventListener('mouseenter', () => {
+    target.classList.add('hovered');
+    source.classList.add('hovered');
+  });
+  source.addEventListener('mouseleave', () => {
+    target.classList.remove('hovered');
+    source.classList.remove('hovered');
+  });
+}
+
 function createLocationItem(title: string, loc: Coords) {
-  const elem = locationItemTemplate(title, loc);
+  const elem = locationItemTemplate(title, loc) as HTMLElement;
+  const marker = document.createElement('div');
+  marker.className = 'marker';
+  hoverConnection(elem, marker);
+  hoverConnection(marker, elem);
+
+  new MB.Marker(marker)
+    .setLngLat({ lng: loc.longitude, lat: loc.latitude })
+    .addTo(map);
+
   elem.addEventListener('click', () => {
     map.flyTo({
       center: [ loc.longitude, loc.latitude ],
