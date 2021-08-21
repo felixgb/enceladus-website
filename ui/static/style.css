@@ -1,0 +1,42 @@
+body {
+  /* display: flex; */
+  padding: 0;
+  margin: 0; 
+}
+
+#wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+#locations {
+  flex-grow: 1;
+  overflow: scroll;
+  display: flex;
+}
+
+.item {
+  margin: 5px;
+  padding: 5px;
+  border: 2px solid purple;
+}
+
+#mapid {
+  flex-grow: 2;
+}
+
+@media screen and (orientation:portrait) {
+  #wrapper {
+    flex-direction: column-reverse;
+  }
+
+  #locations {
+    flex-direction: row;
+  }
+}
+
+@media screen and (orientation:landscape) {
+  #locations {
+    flex-direction: column;
+  }
+}

@@ -20,7 +20,7 @@ while read -r directory events filename; do
     done
 
   fi
-  if [[ $filename == *.html ]]; then
+  if [[ $filename == *.html || $filename == *.css ]]; then
     printf "\033c"
 
     npm run public
